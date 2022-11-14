@@ -343,13 +343,18 @@ function inactive2Func() {
 
 function goStart() {
 	document.getElementById("button-div").style.display = "none";
-	let textbox = document.getElementById("input-box");
-	let rowsColsSpeed = textbox.value;
-	console.log("is null:",rowsColsSpeed == false,"is '',",rowsColsSpeed == ""); 
-	if (!(rowsColsSpeed == null || rowsColsSpeed == "")) {
-		rows = parseInt(rowsColsSpeed.split(" ")[0]);
-		columns = parseInt(rowsColsSpeed.split(" ")[1]);
-		speed = parseInt(rowsColsSpeed.split(" ")[2]);
+	let textbox = document.getElementsByClassName("input-box");
+	let rowsColsBox = textbox[0].value;
+	let speedBox = textbox[1].value;
+	console.log("is null:",rowsColsBox == false || speed == false,"is '',",rowsColsBox == "" || speedBox == ""); 
+	if (!(rowsColsBox == null || rowsColsBox == "" || speedBox == null || speedBox == "")) {
+		rows = parseInt(rowsColsBox);
+		columns = rows;
+		speed = parseInt(speedBox);
+	} else {
+		rows = 8;
+		columns = 8;
+		speed = 600;
 	}
 
 	console.log(textbox.value);
